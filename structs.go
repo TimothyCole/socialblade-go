@@ -74,3 +74,24 @@ type userAuth struct {
 		} `json:"platinum"`
 	} `json:"premium"`
 }
+
+// Favourite is the data of a user favourite
+type Favourite struct {
+	Username string `json:"username,omitempty"`
+	Section  string `json:"section,omitempty"`
+	Data     struct {
+		Followers string `json:"followers,omitempty"`
+		Tweets    string `json:"tweets,omitempty"`
+		Avatar    string `json:"avatar,omitempty"`
+		Banner    string `json:"banner,omitempty"`
+		Name      string `json:"name,omitempty"`
+	} `json:"data,omitempty"`
+	Growth []struct {
+		Followers string `json:"followers,omitempty"`
+		Following string `json:"following,omitempty"`
+		Tweets    string `json:"tweets,omitempty"`
+		Favorites string `json:"favorites,omitempty"`
+		Date      string `json:"date,omitempty"`
+	} `json:"growth,omitempty"`
+	Type string `json:"type,omitempty"`
+}
