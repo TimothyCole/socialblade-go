@@ -9,22 +9,34 @@ import (
 	"github.com/google/go-querystring/query"
 )
 
-func (c *Client) request(method, uri, version string, q interface{}, b []byte, r interface{}) error {
+func (c *Client) request(method, uri, version string, q, b, r interface{}) error {
 	var qs = ""
 	if q != nil {
-		query, err := query.Values(q)
+		q, err := query.Values(q)
 		if err == nil {
-			qs = "?" + query.Encode()
+			qs = "?" + q.Encode()
 		}
 	}
 
-	req, err := http.NewRequest(method, "https://api.socialblade.com/"+version+"/"+uri+qs, bytes.NewBuffer(b))
+	var postBody = ""
+	if b != nil {
+		b, err := query.Values(b)
+		if err == nil {
+			postBody = b.Encode()
+		}
+	}
+
+	req, err := http.NewRequest(method, "https://api.socialblade.com/"+version+"/"+uri+qs, bytes.NewBuffer([]byte(postBody)))
 	if err != nil {
 		return err
 	}
 
 	if c.email != "" && c.token != "" {
 		req.Header.Add("Authorization", c.email+"::"+c.token)
+	}
+
+	if postBody != "" {
+		req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 	}
 
 	client := &http.Client{}

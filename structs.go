@@ -95,3 +95,11 @@ type Favourite struct {
 	} `json:"growth,omitempty"`
 	Type string `json:"type,omitempty"`
 }
+
+// Section is the allowed sections for Favourites
+type section string
+
+type favouriteUpdate struct {
+	Status    interface{} `json:"status"`
+	Favourite bool        `json:"favorite,omitempty"`
+}
