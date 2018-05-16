@@ -12,11 +12,7 @@ func Auth(key string) (*Client, error) {
 	}
 
 	var out tpAuth
-	var qs = struct {
-		Key string `url:"key"`
-	}{Key: client.key}
-
-	err := client.request("GET", "third-party", "v2", qs, nil, &out)
+	err := client.request("GET", "third-party", "v2", nil, nil, &out)
 	if err != nil {
 		return nil, err
 	}
@@ -38,15 +34,7 @@ func AuthAsUser(email, token string) (*Client, error) {
 	}
 
 	var out userAuth
-	var qs = struct {
-		Email string `url:"email"`
-		Token string `url:"token"`
-	}{
-		Email: client.email,
-		Token: client.token,
-	}
-
-	err := client.request("GET", "bridge", "v2", qs, nil, &out)
+	err := client.request("GET", "bridge", "v2", nil, nil, &out)
 	if err != nil {
 		return nil, err
 	}

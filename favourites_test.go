@@ -65,7 +65,7 @@ func TestCheckFavourited(t *testing.T) {
 	if assert.NotNil(t, sb) {
 		ok := sb.CheckFavourited(SectionTwitter, testUser)
 		assert.False(t, ok)
-		t.Log(" Key Test:", ok)
+		t.Log(" Key Test: Only users can have Favourites")
 	}
 
 	// User Test
