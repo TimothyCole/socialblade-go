@@ -26,7 +26,7 @@ func (c *Client) request(method, uri, version string, q, b, r interface{}) error
 	if q != nil {
 		q, err := query.Values(q)
 		if err == nil {
-			qs = "&" + q.Encode()
+			qs = qs + "&" + q.Encode()
 		}
 	}
 
