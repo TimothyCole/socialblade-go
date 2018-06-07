@@ -17,7 +17,7 @@ func (c *Client) request(method, uri, version string, q, b, r interface{}) error
 		Email string `url:"email,omitempty"`
 		Token string `url:"token,omitempty"`
 		Ref   string `url:"CUSTOM_REFER"`
-	}{Key: c.key, Email: c.email, Token: c.token, Ref: "Go Lib"}
+	}{Key: c.key, Email: c.email, Token: c.token, Ref: "Tim's Go Lib"}
 	a, err := query.Values(auth)
 	if err == nil {
 		qs = qs + "?" + a.Encode()
@@ -39,6 +39,7 @@ func (c *Client) request(method, uri, version string, q, b, r interface{}) error
 	}
 
 	req, err := http.NewRequest(method, "https://api.socialblade.com/"+version+"/"+uri+qs, bytes.NewBuffer([]byte(postBody)))
+	req.Header.Set("User-Agent", "Tim's Go Library :: TimothyCole/socialblade-go")
 	if err != nil {
 		return err
 	}
