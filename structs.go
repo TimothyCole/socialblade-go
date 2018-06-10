@@ -8,6 +8,9 @@ type Client struct {
 	key   string
 }
 
+// section is the allowed sections for Favourites
+type section string
+
 type tpAuth struct {
 	Status struct {
 		Response int    `json:"response"`
@@ -96,9 +99,6 @@ type Favourite struct {
 	Type string `json:"type,omitempty"`
 }
 
-// Section is the allowed sections for Favourites
-type section string
-
 type favouriteUpdate struct {
 	Status    interface{} `json:"status"`
 	Favourite bool        `json:"favorite,omitempty"`
@@ -183,4 +183,45 @@ type YouTubeStatsData struct {
 		Subs  string `json:"subs"`
 		Views string `json:"views"`
 	} `json:"data_daily,omitempty"`
+}
+
+// TopList is used for the top lists
+type TopList struct {
+	Status struct {
+		Cache    string `json:"cache"`
+		Type     string `json:"type"`
+		Response int    `json:"response"`
+	} `json:"status"`
+	Result []struct {
+		Username          string `json:"username"`
+		Channelid         string `json:"channelid"`
+		Cusername         string `json:"cusername"`
+		Displayname       string `json:"displayname"`
+		Subscribers       string `json:"subscribers"`
+		Vidviews          string `json:"vidviews"`
+		Uploads           string `json:"uploads"`
+		CreatedAt         string `json:"created_at"`
+		Channeltype       string `json:"channeltype"`
+		Country           string `json:"country"`
+		Avgdailyviews     string `json:"avgdailyviews"`
+		Views30           string `json:"views30"`
+		Views365          string `json:"views365"`
+		Sbrank            string `json:"sbrank"`
+		RankSubscribers   int    `json:"rank_subscribers"`
+		RankViews         string `json:"rank_views"`
+		EstimatedEarnings struct {
+			Daily struct {
+				Low  float32 `json:"low"`
+				High float32 `json:"high"`
+			} `json:"daily"`
+			Monthly struct {
+				Low  float32 `json:"low"`
+				High float32 `json:"high"`
+			} `json:"monthly"`
+			Yearly struct {
+				Low  float32 `json:"low"`
+				High float32 `json:"high"`
+			} `json:"yearly"`
+		} `json:"estimated_earnings"`
+	} `json:"result"`
 }

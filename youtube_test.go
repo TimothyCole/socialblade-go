@@ -36,3 +36,26 @@ func TestStatsYouTube(t *testing.T) {
 		t.Log("User Test:", stats.Data.DisplayName, "has", stats.Data.Subs, "subscribers")
 	}
 }
+
+func TestTopYouTube(t *testing.T) {
+	var clients []*Client
+
+	// Auth as Third-Party
+	sb, err := Auth(key)
+	clients = append(clients, sb)
+
+	// Auth as First-Party
+	sb, err = AuthAsUser(email, token)
+	clients = append(clients, sb)
+
+	// Run tests on Auth types
+	for _, sb := range clients {
+		assert.Nil(t, err)
+		if assert.NotNil(t, sb) {
+			top, err := sb.TopYouTube("subscribers")
+			assert.NotNil(t, top)
+			assert.Nil(t, err)
+			assert.Equal(t, len(top.Result) >= 100, true)
+		}
+	}
+}
