@@ -8,8 +8,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-var key, email, token string
-
 func init() {
 	key = os.Getenv("SOCIALBLADE_KEY")
 
