@@ -41,7 +41,7 @@ Getting YouTube Stats
 ```go
 sb, _ := socialblade.Auth("Third-Party API Key")
 stats, _ := sb.StatsYouTube("EatTim")
-fmt.Println(stats.Data.DisplayName, "has", stats.Data.Subs, "subscribers")
+fmt.Printf("%s has %s subs \n", stats.Data.DisplayName, stats.Data.Subs)
 ```
 
 ## Troubleshooting
