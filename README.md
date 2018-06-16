@@ -12,7 +12,7 @@ Just because I work for Social Blade does not mean this is an official library. 
 
 This library supports most of the `api.socialblade.com` endpoints that are being exposed by either the official Social Blade Browser Extensions, Apps, or Website. Any endpoints that are not exposed publically will not be added until done so.
 
-Social Blade's API is a private API used for Social Blade official tools and for companies with express written permission. Use of the Social Blade API without express permission is prohibited by the active [Terms of Service](https://socialblade.com/info/terms) and may in being blocked from the Social Blade website and all of it's data.
+Social Blade's API is a private API used for Social Blade official tools and for companies with express written permission. Use of the Social Blade API without express permission is prohibited by the active [Terms of Service](https://socialblade.com/info/terms) and may result in being blocked from the Social Blade website and all of it's data.
 
 ---
 
