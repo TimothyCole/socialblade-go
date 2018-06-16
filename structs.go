@@ -185,8 +185,8 @@ type YouTubeStatsData struct {
 	} `json:"data_daily,omitempty"`
 }
 
-// TopList is used for the top lists
-type TopList struct {
+// YouTubeTopList is used for youtube top lists
+type YouTubeTopList struct {
 	Status struct {
 		Cache    string `json:"cache"`
 		Type     string `json:"type"`
@@ -223,5 +223,76 @@ type TopList struct {
 				High float32 `json:"high"`
 			} `json:"yearly"`
 		} `json:"estimated_earnings"`
+	} `json:"result"`
+}
+
+// TwitchStatsData is data for YouTube Stats
+type TwitchStatsData struct {
+	Status struct {
+		Response int         `json:"response"`
+		Error    interface{} `json:"error"`
+		Message  string      `json:"message"`
+	} `json:"status"`
+	ID struct {
+		Results  int    `json:"results"`
+		TwitchID string `json:"twitch_id"`
+		Username string `json:"username"`
+		Mod      string `json:"mod"`
+	} `json:"id"`
+	Data struct {
+		Username           string `json:"username"`
+		Game               string `json:"game"`
+		Status             string `json:"status"`
+		Avatar             string `json:"avatar"`
+		Banner             string `json:"banner"`
+		Followers          string `json:"followers"`
+		Followersdaygain   string `json:"followersdaygain"`
+		Followersmonthgain string `json:"followersmonthgain"`
+		Avgdailyfollowers  string `json:"avgdailyfollowers"`
+		Avgdailyviews      string `json:"avgdailyviews"`
+		Activity           string `json:"activity"`
+		Views              string `json:"views"`
+		Viewsdaygain       string `json:"viewsdaygain"`
+		Viewsmonthgain     string `json:"viewsmonthgain"`
+		CreatedAt          string `json:"created_at"`
+		IsVerified         string `json:"isVerified"`
+	} `json:"data"`
+	Rank struct {
+		Rank        string `json:"rank"`
+		Vidviewrank string `json:"vidviewrank"`
+		Grade       struct {
+			Raw     int    `json:"raw"`
+			Grade   string `json:"grade"`
+			Display string `json:"display"`
+		} `json:"grade"`
+	} `json:"rank"`
+	DataDaily []struct {
+		Date      string `json:"date"`
+		Followers string `json:"followers"`
+		Views     string `json:"views"`
+	} `json:"data_daily"`
+}
+
+// TwitchTopList is used for youtube top lists
+type TwitchTopList struct {
+	Status struct {
+		Cache    string `json:"cache"`
+		Type     string `json:"type"`
+		Response int    `json:"response"`
+	} `json:"status"`
+	Result []struct {
+		Username          string      `json:"username"`
+		Displayname       interface{} `json:"displayname"`
+		Followers         string      `json:"followers"`
+		Views             string      `json:"views"`
+		Avgdailyfollowers string      `json:"avgdailyfollowers"`
+		Avgdailyviews     string      `json:"avgdailyviews"`
+		CreatedAt         string      `json:"created_at"`
+		Game              string      `json:"game"`
+		Status            string      `json:"status"`
+		// rank_followers and rank_channelviews currently have a glich where the filtered type (followers/views) will be an int and the other will be a string
+		//  it's an interface so it to unmarshal correctly and you can still use it by check the type of it first
+		RankFollowers    interface{} `json:"rank_followers"`
+		RankChannelviews interface{} `json:"rank_channelviews"`
 	} `json:"result"`
 }
