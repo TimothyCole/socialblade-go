@@ -1,6 +1,6 @@
 # Social Blade API in Go [<img align="right" src="https://socialblade.com/images/media/red/2.png">](https://github.com/TimothyCole/socialblade-go)
 
-[![Build Status](https://travis-ci.com/TimothyCole/socialblade-go.svg?token=gsYwYFiD8WESrxYpff5q&branch=master)](https://travis-ci.com/TimothyCole/socialblade-go)
+[![Build Status](https://travis-ci.com/TimothyCole/socialblade-go.svg?branch=master)](https://travis-ci.com/TimothyCole/socialblade-go)
 [![GoDoc](https://godoc.org/github.com/TimothyCole/socialblade-go?status.svg)](https://godoc.org/github.com/TimothyCole/socialblade-go)
 [![Personal Discord](https://img.shields.io/discord/313591755180081153.svg?label=Personal%20Discord&colorB=308bcd&maxAge=3600)](https://discordapp.com/invite/YFtfGwq)
 [![Social Blade Discord](https://img.shields.io/discord/125022847562285056.svg?label=Social%20Blade%20Discord%20(Not%20for%20Support)&colorB=c84329&maxAge=3600)](https://socialblade.com/discord)
