@@ -45,3 +45,15 @@ func AuthAsUser(email, token string) (*Client, error) {
 
 	return client, nil
 }
+
+// AuthAsAnon allows you to create a client without needing creds to access unlocked endpoints
+func AuthAsAnon() *Client {
+	var client = &Client{
+		user:  true,
+		email: "",
+		token: "",
+		key:   "",
+	}
+
+	return client
+}

@@ -296,3 +296,14 @@ type TwitchTopList struct {
 		RankChannelviews interface{} `json:"rank_channelviews"`
 	} `json:"result"`
 }
+
+// TeamData is the struct for the Social Blade Team
+type TeamData struct {
+	Team []struct {
+		Name    string   `json:"name"`
+		Title   string   `json:"title,omitempty"`
+		Image   string   `json:"image,omitempty"`
+		Socials []string `json:"socials,omitempty"`
+		Discord int64    `json:"discord"`
+	} `json:"team"`
+}
