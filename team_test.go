@@ -9,5 +9,5 @@ import (
 func TestTeam(t *testing.T) {
 	sb := AuthAsAnon()
 	_, err := sb.Team()
-	assert.NotNil(t, err)
+	assert.Nil(t, err)
 }
