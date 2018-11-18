@@ -27,13 +27,10 @@ Import the library into your project.
 import "github.com/TimothyCole/socialblade-go"
 ```
 
-Construct a new client which will be used to access the API by either the third-party `Auth` function or first-party `AuthAsUser` function.
+Construct a new client which will be used to access the API by using the third-party `Auth` function.
 ```go
 // Third-Party Auth
 sb, err := socialblade.Auth("Third-Party API Key")
-
-// First-Party Auth
-sb, err := socialblade.AuthAsUser("User Email", "User Access Token")
 ```
 
 ## Example
