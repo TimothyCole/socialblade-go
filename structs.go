@@ -50,8 +50,8 @@ type userAuth struct {
 				Current string `json:"current"`
 				Limit   int    `json:"limit"`
 			} `json:"day"`
-			Success string `json:"success"`
-			Failure string `json:"failure"`
+			Success interface{} `json:"success"`
+			Failure interface{} `json:"failure"`
 		} `json:"limits"`
 	} `json:"id"`
 	Premium struct {
