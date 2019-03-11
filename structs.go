@@ -30,13 +30,13 @@ type userAuth struct {
 		Message  string `json:"message,omitempty"`
 	} `json:"status"`
 	ID struct {
-		Result   int    `json:"result"`
-		Userid   string `json:"userid"`
+		Result   int `json:"result"`
+		Userid   int `json:"userid"`
 		Settings struct {
-			Currency      string `json:"currency"`
-			Ads           string `json:"ads"`
+			Currency      int    `json:"currency"`
+			Ads           int    `json:"ads"`
 			DisplayName   string `json:"display_name"`
-			EmailProgress string `json:"email_progress"`
+			EmailProgress int    `json:"email_progress"`
 		} `json:"settings"`
 		SocialBladePartner bool   `json:"socialblade_partner"`
 		Email              string `json:"email"`
@@ -235,7 +235,7 @@ type TwitchStatsData struct {
 	} `json:"status"`
 	ID struct {
 		Results  int    `json:"results"`
-		TwitchID string `json:"twitch_id"`
+		TwitchID int    `json:"twitch_id"`
 		Username string `json:"username"`
 		Mod      string `json:"mod"`
 	} `json:"id"`
@@ -245,21 +245,21 @@ type TwitchStatsData struct {
 		Status             string `json:"status"`
 		Avatar             string `json:"avatar"`
 		Banner             string `json:"banner"`
-		Followers          string `json:"followers"`
-		Followersdaygain   string `json:"followersdaygain"`
-		Followersmonthgain string `json:"followersmonthgain"`
-		Avgdailyfollowers  string `json:"avgdailyfollowers"`
-		Avgdailyviews      string `json:"avgdailyviews"`
-		Activity           string `json:"activity"`
-		Views              string `json:"views"`
-		Viewsdaygain       string `json:"viewsdaygain"`
-		Viewsmonthgain     string `json:"viewsmonthgain"`
+		Followers          int    `json:"followers"`
+		Followersdaygain   int    `json:"followersdaygain"`
+		Followersmonthgain int    `json:"followersmonthgain"`
+		Avgdailyfollowers  int    `json:"avgdailyfollowers"`
+		Avgdailyviews      int    `json:"avgdailyviews"`
+		Activity           int    `json:"activity"`
+		Views              int    `json:"views"`
+		Viewsdaygain       int    `json:"viewsdaygain"`
+		Viewsmonthgain     int    `json:"viewsmonthgain"`
 		CreatedAt          string `json:"created_at"`
-		IsVerified         string `json:"isVerified"`
+		IsVerified         int    `json:"isVerified"`
 	} `json:"data"`
 	Rank struct {
-		Rank        string `json:"rank"`
-		Vidviewrank string `json:"vidviewrank"`
+		Rank        int `json:"rank"`
+		Vidviewrank int `json:"vidviewrank"`
 		Grade       struct {
 			Raw     int    `json:"raw"`
 			Grade   string `json:"grade"`
@@ -268,8 +268,8 @@ type TwitchStatsData struct {
 	} `json:"rank"`
 	DataDaily []struct {
 		Date      string `json:"date"`
-		Followers string `json:"followers"`
-		Views     string `json:"views"`
+		Followers int    `json:"followers"`
+		Views     int    `json:"views"`
 	} `json:"data_daily"`
 }
 
