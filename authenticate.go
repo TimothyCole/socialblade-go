@@ -9,6 +9,7 @@ func Auth(key string) (*Client, error) {
 		email: "",
 		token: "",
 		key:   key,
+		api:   "",
 	}
 
 	var out tpAuth
@@ -31,6 +32,7 @@ func AuthAsUser(email, token string) (*Client, error) {
 		email: email,
 		token: token,
 		key:   "",
+		api:   "",
 	}
 
 	var out userAuth
@@ -53,6 +55,20 @@ func AuthAsAnon() *Client {
 		email: "",
 		token: "",
 		key:   "",
+		api:   "",
+	}
+
+	return client
+}
+
+// AuthAsService allows you to create a client with a service based api token
+func AuthAsService(token string) *Client {
+	var client = &Client{
+		user:  true,
+		email: "",
+		token: "",
+		key:   "",
+		api:   token,
 	}
 
 	return client

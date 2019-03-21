@@ -6,6 +6,7 @@ type Client struct {
 	email string
 	token string
 	key   string
+	api   string
 }
 
 // section is the allowed sections for Favourites

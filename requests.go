@@ -13,11 +13,12 @@ func (c *Client) request(method, uri, version string, q, b, r interface{}) error
 	var qs = ""
 	// Build auth section in the querystring
 	var auth = struct {
+		API   string `url:"api,omitempty"`
 		Key   string `url:"key,omitempty"`
 		Email string `url:"email,omitempty"`
 		Token string `url:"token,omitempty"`
 		Ref   string `url:"CUSTOM_REFER"`
-	}{Key: c.key, Email: c.email, Token: c.token, Ref: "Tim's Go Lib"}
+	}{API: c.api, Key: c.key, Email: c.email, Token: c.token, Ref: "Tim's Go Lib"}
 	a, err := query.Values(auth)
 	if err == nil {
 		qs = qs + "?" + a.Encode()
