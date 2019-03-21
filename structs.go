@@ -258,12 +258,12 @@ type TwitchStatsData struct {
 		IsVerified         int    `json:"isVerified"`
 	} `json:"data"`
 	Rank struct {
-		Rank        int `json:"rank"`
-		Vidviewrank int `json:"vidviewrank"`
+		Rank        interface{} `json:"rank"`
+		Vidviewrank interface{} `json:"vidviewrank"`
 		Grade       struct {
-			Raw     int    `json:"raw"`
-			Grade   string `json:"grade"`
-			Display string `json:"display"`
+			Raw     interface{} `json:"raw"`
+			Grade   string      `json:"grade"`
+			Display string      `json:"display"`
 		} `json:"grade"`
 	} `json:"rank"`
 	DataDaily []struct {
